@@ -133,7 +133,7 @@ To run tests, run the following command:
 ## 👥 Authors <a name="authors"></a>
 
 👤 **Author1**
- *[NALEDI DIKGALE]*
+ *[Ndonyi]*
  
 - GitHub: [@githubhandle](https://github.com/citec-47)
 - Twitter: [@twitterhandle](https://twitter.com/Ndonyi4)
