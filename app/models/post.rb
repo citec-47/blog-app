@@ -1,8 +1,9 @@
 class Post < ApplicationRecord
   belongs_to :author, class_name: 'User'
-  has_many :likes, :comments, dependent: :destroy
+  has_many :likes, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
-  after_save :update_posts_count
+  after_save :update_author_posts_count
 
   def five_most_recent_comments
     comments.order(created_at: :desc).limit(5)
@@ -10,7 +11,7 @@ class Post < ApplicationRecord
 
   private
 
-  def update_posts_count
+  def update_author_posts_count
     author.increment!(:posts_count)
   end
 end
