@@ -50,7 +50,7 @@ gem 'bootsnap', require: false
 
 group :development, :test do
   gem 'rspec-rails'
-  gem 'shoulda-matchers'
+  gem 'shoulda-matchers', '~> 5.0'
 end
 
 group :development do
