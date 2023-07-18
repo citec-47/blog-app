@@ -50,7 +50,7 @@ gem 'bootsnap', require: false
 
 group :development, :test do
   gem 'rspec-rails'
-  gem 'shoulda-matchers', '~> 5.0'
+  gem 'shoulda-matchers'
 end
 
 group :development do
@@ -70,4 +70,5 @@ group :test do
   gem 'selenium-webdriver'
   gem 'webdrivers'
 end
+gem 'rails-controller-testing'
 gem 'rubocop', '>= 1.0', '< 2.0'
