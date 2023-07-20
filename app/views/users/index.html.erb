@@ -1,5 +1,5 @@
 <div class="users">
-    <% @users.each do |user| %>
-        <%= render 'shared/user', user: user %>
-    <% end %>
+  <% @users.each do |user| %>
+    <%= render_user(user) %>
+  <% end %>
 </div>
