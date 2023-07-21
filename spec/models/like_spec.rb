@@ -8,7 +8,7 @@ RSpec.describe Like, type: :model do
 
   describe 'callbacks' do
     describe 'after_save' do
-      let(:user) { User.create(name: 'Ndonyi') }
+      let(:user) { User.create(name: 'Ndonyi Maurice') }
       let(:post) { Post.create(title: 'Test Post') }
     end
   end
