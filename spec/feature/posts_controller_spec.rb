@@ -72,12 +72,12 @@ describe 'posts', type: :feature do
       visit user_post_path(@user, @post)
     end
 
-    # it 'displays post title, text, author, comments and likes count' do
-    #   expect(page).to have_content('Adventure')
-    #   expect(page).to have_content('Checkout this waterfall')
-    #   expect(page).to have_content('Comments: 1')
-    #   expect(page).to have_content('Likes: 2')
-    # end
+    it 'displays post title, text, author, comments and likes count' do
+      expect(page).to have_content('Adventure')
+      expect(page).to have_content('Checkout this waterfall')
+      expect(page).to have_content('Comments: 1')
+      expect(page).to have_content('Likes: 2')
+    end
 
     it 'displays posts comments, comments author' do
       expect(page).to have_content('Jimmy: Great shot, Lisa!')
