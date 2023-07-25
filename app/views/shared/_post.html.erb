@@ -1,14 +1,15 @@
-<div class="post">
+<div class=" flex flex-col gap-4 w-full">
   <%= link_to user_post_path(user, post) do %>
-    <div class="post-title">
-      <h1><%= post.title %></h1>
+
+  <div class=" flex flex-col gap-4 w-full max-w-md p-2 min-h-min border-2 ">
+    <h2 class="font-bold"> <%= post.title %> </h2>
+    <p> <%= post.text %> </p>
+
+    <div class="flex gap-2 w-full justify-end">
+      <p>Comments: <%= post.comments_counter %> </p>
+      <p>Likes: <%= post.likes_counter %> </p>
     </div>
-    <div class="">
-      <p><%= post.text %></p>
-    </div>
-    <div class="interactions">
-      <p>comments: <%= post.comments_counter %></p>
-      <p>likes: <%= post.likes_counter %></p>
-    </div>
+    
+  </div>
   <% end %>
 </div>
