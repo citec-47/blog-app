@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   def index
+    @user = User.find_by(id: params[:user_id])
     @posts = Post.includes(:author).where(author_id: params[:user_id])
-    @user = User.includes(:posts).find(params[:user_id])
   end
 
   def show
@@ -17,27 +17,13 @@ class PostsController < ApplicationController
 
   def create
     @user = current_user
-    @post = @user.posts.new(post_params)
+    @post = Post.new(post_params)
+    @post.author_id = @user.id
+
     if @post.save
-      redirect_to user_post_path(@user, @post)
+      redirect_to user_posts_path(@user), notice: 'Post created successfully!'
     else
-      puts @user
-      puts @post.errors.full_messages
-      flash.now[:errors] = 'Invalid post!'
-      render :new
-    end
-  end
-
-  def destroy
-    @post = Post.find_by(author_id: params[:user_id], id: params[:id])
-    @post.destroy
-
-    if @post.destroyed?
-      flash[:notice] = 'Post deleted!'
-      redirect_to user_posts_path(@post.author)
-    else
-      flash.now[:errors] = 'Unable to delete post!'
-      redirect_to user_post_path(@post.author, @post)
+      redirect_to user_posts_path(@user), alert: 'Failed to create the post.'
     end
   end
 

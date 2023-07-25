@@ -1,26 +1,35 @@
-<div class="posts-container">
-  <div class="users"> 
-    <%= render 'shared/user', user: @user %>
-  </div>
+<div class="p-4 w-full flex flex-col items-center">
+  <%= render "shared/user", user:@user %>
 
-  <div class="posts">
-    <h2>All Posts</h2>
-    <%= link_to "Add post", new_user_post_path(@user) %>
+  <div class="py-7">
+
+    <div class="w-full flex justify-end">
+      <%= link_to "New Post", new_user_post_path(@user), class: "text-white hover:bg-blue-950 bg-blue-500 rounded-full py-2 px-4" %>
+    </div>
 
     <% @posts.each do |post| %>
-      <%= render 'shared/post', post: post, user: @user %>
+      <div class="flex flex-col py-7 gap-2">
+      
+        <%= render "shared/post", post: post, user: @user %>
 
-      <div class="">
-        <%= link_to "Add Comment", new_user_post_comment_path(@user, post) %>
-        <%= form_with url: user_post_likes_path(post.author.id, post.id) do |form| %>
-          <%= form.submit 'Like' %>
+        <div class="w-full flex gap-2">
+          <%= link_to "Add Comment", new_user_post_comment_path(@user, post), class: "text-white hover:bg-blue-950 bg-blue-500 rounded-full py-2 px-4 text-center" %>
+
+          <%= form_with url: user_post_likes_path(post.author.id, post.id) do |form| %>
+            <%= form.submit 'Like', class: "text-white hover:bg-blue-950 bg-blue-500 rounded-full py-2 px-4 text-center" %>
+          <% end %>
+        </div>
+
+        <% if post.last_five_comments.present? %>
+          <% @comments = post.last_five_comments %>
+          <%= render "shared/comment", comments: @comments %>
+          <%= render "shared/comment", comments: post.last_five_comments %>
         <% end %>
+
       </div>
 
-      <% if post.five_most_recent_comments.present? %>
-        <% comments = post.five_most_recent_comments %>
-        <%= render 'shared/comments', comments: comments %>
-      <% end %>
     <% end %>
+    
   </div>
+
 </div>
