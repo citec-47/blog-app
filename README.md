@@ -139,6 +139,12 @@ To run tests, run the following command:
 - Twitter: [@twitterhandle](https://twitter.com/Ndonyi4)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/ndonyi-maurice-b5b49b22b/)
 
+👤 *[Mercy Mugambi]*
+
+- GitHub: [@Mercy Mugambi](https://github.com/mercymugambi)
+- Twitter: [@MercyMugambi15](https://twitter.com/MercyMugambi15)
+- LinkedIn: [@mercymugambi](https://www.linkedin.com/in/mercymugambi)
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- FUTURE FEATURES -->
